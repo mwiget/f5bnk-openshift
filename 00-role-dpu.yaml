@@ -1,0 +1,12 @@
+# Empty MachineConfig used only so that the new role label exists.
+# (The MCO insists that every role referenced by a pool has at least one MC.)
+apiVersion: machineconfiguration.openshift.io/v1
+kind: MachineConfig
+metadata:
+  name: 00-role-dpu
+  labels:
+    machineconfiguration.openshift.io/role: dpu
+spec:
+  config:
+    ignition:
+      version: 3.2.0        # leave default – nothing to apply

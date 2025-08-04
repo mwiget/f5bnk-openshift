@@ -1,0 +1,14 @@
+apiVersion: machineconfiguration.openshift.io/v1
+kind: MachineConfigPool
+metadata:
+  name: dpu
+spec:
+  machineConfigSelector:
+    matchExpressions:
+      - key: machineconfiguration.openshift.io/role
+        operator: In
+        values:
+          - worker   # Must inherit from 'worker'
+  nodeSelector:
+    matchLabels:
+      node-role.kubernetes.io/dpu: ""
