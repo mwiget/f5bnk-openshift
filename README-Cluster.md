@@ -42,6 +42,8 @@ dpu    rendered-dpu-70d3b0a2107575c7d1f898b72e2842ba   True      False      Fals
 
 5) Imaged the DPU with 
 
+use dpu.ign instead of worker.ign if using machineconfig 
+
 ```
 sudo bfb-install --rshim rshim0 --config worker.ign --bfb rhcos_4.19.0-ec.4_installer_2025-04-23_07-48-42.bfb
 ```
