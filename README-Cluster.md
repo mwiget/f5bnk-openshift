@@ -21,10 +21,23 @@ oc adm upgrade --to-multi-arch
 
 This took roughly 30 minutes.
 
-4) Create worker.ign with 
+4) Create worker.ign or dpu.ign with 
 
 ```
 oc extract -n openshift-machine-api secret/worker-user-data-managed --keys=userData --to=- > worker.ign
+```
+
+Preferred, create dpu role, machine configuration and pool for DPU, then create ignition file:
+ 
+```
+$ ./create-dpu-mcp.sh
+machineconfig.machineconfiguration.openshift.io/00-role-dpu created
+machineconfigpool.machineconfiguration.openshift.io/dpu created
+waiting for dpu machineconfig status True ...
+machineconfigpool.machineconfiguration.openshift.io/dpu condition met
+NAME   CONFIG                                          UPDATED   UPDATING   DEGRADED   MACHINECOUNT   READYMACHINECOUNT   UPDATEDMACHINECOUNT   DEGRADEDMACHINECOUNT   AGE
+dpu    rendered-dpu-70d3b0a2107575c7d1f898b72e2842ba   True      False      False      0              0                   0                     0                      11s
+-rw-r--r-- 1 mwiget mwiget 159395 Aug  4 09:23 dpu.ign
 ```
 
 5) Imaged the DPU with 
