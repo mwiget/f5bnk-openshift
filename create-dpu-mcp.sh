@@ -8,6 +8,7 @@ oc wait mcp/dpu \
   --timeout=10m
 
 oc get mcp dpu -o wide
-oc get machineconfig $(oc get mcp dpu -o jsonpath='{.status.configuration.name}') \
-  -o json | jq -c '.spec.config' > dpu.ign
+echo ""
+oc extract -n openshift-machine-api secret/dpu-user-data-managed --keys=userData --to=- > dpu.ign
+echo ""
 ls -l dpu.ign
