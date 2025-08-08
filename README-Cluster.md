@@ -43,7 +43,7 @@ master-user-data                                     Opaque                    2
 master-user-data-managed                             Opaque                    2      8h
 worker-user-data                                     Opaque                    2      8h
 worker-user-data-managed                             Opaque                    2      8h
-
+```
 
 list machine config pools
 
